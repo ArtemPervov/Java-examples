@@ -1,5 +1,7 @@
 This is an extremely simple rest spring boot application. 
 This application has a configuration for Hakari.
 The ability to run the application under two different databases is also configured: H2 and PostgreSQL. 
-	* to launch an application based on H2, necessary to launch it through runH2.sh
-	* to launch an application based on PostgreSQL, necessary to launch it through runPostgres.sh
+	* to launch an application based on H2, necessary to launch it through follow command:
+        mvn spring-boot:run -Dspring-boot.run.arguments="--spring.jpa.database-platform=org.hibernate.dialect.H2Dialect --spring.datasource.jdbc-url=jdbc:h2:mem:testdb --spring.datasource.driverClassName=org.h2.Driver --spring.datasource.username=sa --spring.datasource.password=password --spring.flyway.url=jdbc:h2:mem:testdb --spring.flyway.user=sa --spring.flyway.password=password"
+	* to launch an application based on PostgreSQL, necessary to launch it through follow command:
+	    mvn spring-boot:run -Dspring-boot.run.arguments="--spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect --spring.datasource.jdbc-url=jdbc:postgresql://localhost:5432/postgres --spring.datasource.driverClassName=org.postgresql.Driver --spring.datasource.username=postgres --spring.datasource.password=1234 --spring.flyway.url=jdbc:postgresql://localhost:5432/postgres --spring.flyway.user=postgres --spring.flyway.password=1234"
